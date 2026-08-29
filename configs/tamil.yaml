@@ -1,0 +1,121 @@
+# Tamil Target Configuration (ta)
+
+target_language: "ta"
+language_name: "Tamil"
+indictrans2_code: "tam_Taml"
+flores_code: "tam_Taml"
+
+# Model specific overrides for Tamil
+models:
+  baseline:
+    name: "Helsinki-NLP/opus-mt-en-dra"
+    target_prefix: ">>tam<< "
+
+  indictrans2:
+    tgt_lang: "tam_Taml"
+
+  legal_aware:
+    tgt_lang: "tam_Taml"
+
+# Configurable Tamil Legal Terminology Dictionary
+legal_terms:
+  petitioner:
+    canonical: "மனுதாரர்"
+    variants: ["மனுதாரர்", "மனுதாரரின்", "மனுதாரருக்கு", "மனுதாரர்கள்"]
+    type: "party_role"
+  respondent:
+    canonical: "எதிர்மனுதாரர்"
+    variants: ["எதிர்மனுதாரர்", "எதிர்மனுதாரரின்", "எதிர்மனுதாரருக்கு", "எதிர்மனுதாரர்கள்", "பிரதிவாதி"]
+    type: "party_role"
+  appellant:
+    canonical: "மேல்முறையீட்டாளர்"
+    variants: ["மேல்முறையீட்டாளர்", "மேல்முறையீட்டாளரின்", "மேல்முறையீட்டாளர்கள்"]
+    type: "party_role"
+  defendant:
+    canonical: "பிரதிவாதி"
+    variants: ["பிரதிவாதி", "பிரதிவாதியின்", "பிரதிவாதிகள்"]
+    type: "party_role"
+  plaintiff:
+    canonical: "வாதி"
+    variants: ["வாதி", "வாதியின்", "வாதிகள்"]
+    type: "party_role"
+  accused:
+    canonical: "குற்றஞ்சாட்டப்பட்டவர்"
+    variants: ["குற்றஞ்சாட்டப்பட்டவர்", "எதிரி", "குற்றவாளி"]
+    type: "party_role"
+  section:
+    canonical: "பிரிவு"
+    variants: ["பிரிவு", "பிரிவுகள்", "பிரிவின்படி", "செக்ஷன்"]
+    type: "statute"
+  judgment:
+    canonical: "தீர்ப்பு"
+    variants: ["தீர்ப்பு", "தீர்ப்பில்", "தீர்ப்பின்"]
+    type: "legal_action"
+  order:
+    canonical: "உத்தரவு"
+    variants: ["உத்தரவு", "உத்தரவின்படி", "உத்தரவிட்டுள்ளது"]
+    type: "legal_action"
+  appeal:
+    canonical: "மேல்முறையீடு"
+    variants: ["மேல்முறையீடு", "மேல்முறையீட்டு", "மேல்முறையீட்டில்"]
+    type: "legal_action"
+  petition:
+    canonical: "மனு"
+    variants: ["மனு", "மனுவை", "மனுவில்"]
+    type: "legal_action"
+  evidence:
+    canonical: "சாட்சியம்"
+    variants: ["சாட்சியம்", "சான்று", "சாட்சியங்கள்", "ஆதாரம்"]
+    type: "procedure"
+  affidavit:
+    canonical: "பிரமாணப் பத்திரம்"
+    variants: ["பிரமாணப் பத்திரம்", "பிரமாண வாக்குமூலம்", "உறுதிமொழிப் பத்திரம்"]
+    type: "document"
+  conviction:
+    canonical: "தண்டனை"
+    variants: ["தண்டனை", "குற்றவாளி என தீர்ப்பு", "தண்டிக்கப்பட்டார்"]
+    type: "outcome"
+  acquittal:
+    canonical: "விடுதலை"
+    variants: ["விடுதலை", "குற்றமற்றவர் என விடுதலை", "விடுவிக்கப்பட்டார்"]
+    type: "outcome"
+  dismissed:
+    canonical: "தள்ளுபடி செய்யப்பட்டது"
+    variants: ["தள்ளுபடி", "தள்ளுபடி செய்யப்பட்டது", "தள்ளுபடி செய்யப்படுகிறது"]
+    type: "outcome"
+  allowed:
+    canonical: "அனுமதிக்கப்பட்டது"
+    variants: ["அனுமதிக்கப்பட்டது", "ஏற்றுக்கொள்ளப்பட்டது", "அனுமதிக்கப்படுகிறது"]
+    type: "outcome"
+  bail:
+    canonical: "பிணை"
+    variants: ["பிணை", "ஜாமீன்", "முன்பிணை"]
+    type: "procedure"
+  court:
+    canonical: "நீதிமன்றம்"
+    variants: ["நீதிமன்றம்", "நீதிமன்றத்தின்", "நீதிமன்றத்தில்"]
+    type: "institution"
+  high_court:
+    canonical: "உயர் நீதிமன்றம்"
+    variants: ["உயர் நீதிமன்றம்", "உயர்நீதிமன்றம்", "உயர் நீதிமன்றத்தில்"]
+    type: "institution"
+  supreme_court:
+    canonical: "உச்ச நீதிமன்றம்"
+    variants: ["உச்ச நீதிமன்றம்", "உச்சநீதிமன்றம்", "உச்ச நீதிமன்றத்தில்"]
+    type: "institution"
+  district_court:
+    canonical: "மாவட்ட நீதிமன்றம்"
+    variants: ["மாவட்ட நீதிமன்றம்", "மாவட்ட நீதிமன்றத்தில்"]
+    type: "institution"
+  witness:
+    canonical: "சாட்சி"
+    variants: ["சாட்சி", "சாட்சிகள்", "சாட்சியாளர்"]
+    type: "party_role"
+  cross_examination:
+    canonical: "குறுக்கு விசாரணை"
+    variants: ["குறுக்கு விசாரணை", "குறுக்கு விசாரணையில்"]
+    type: "procedure"
+  statute:
+    canonical: "சட்டம்"
+    variants: ["சட்டம்", "சட்டத்தின்", "சட்டப்பிரிவு"]
+    type: "statute"

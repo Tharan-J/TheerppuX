@@ -1,0 +1,115 @@
+# Default Configuration for Stage 1 Legal Multilingual Translation Pipeline
+
+# Project Information
+project_name: "TheerppuX-Stage1"
+version: "1.0.0"
+seed: 42
+
+# Device Configuration
+device: "auto"  # 'auto' (cuda -> mps -> cpu), 'cuda', 'cpu', 'mps'
+fp16: true      # Use fp16 for GPU inference
+
+# Logging
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+
+# Paths
+paths:
+  data_dir: "data"
+  raw_dir: "data/raw"
+  processed_dir: "data/processed"
+  references_dir: "data/references"
+  outputs_dir: "data/outputs"
+  models_dir: "models"
+
+# Document Ingestion & OCR
+document:
+  supported_extensions: [".pdf", ".txt", ".docx"]
+  scanned_threshold_chars_per_page: 50
+  ocr:
+    enabled: true
+    engine: "paddleocr"  # paddleocr fallback
+    languages: ["en", "ta", "ml"]
+    use_angle_cls: true
+
+# Preprocessing
+preprocessing:
+  unicode_normalization: "NFC"
+  clean_ocr_artifacts: true
+  remove_headers_footers: true
+  min_chunk_length: 20
+  max_chunk_length: 512
+  segmentation:
+    mode: "legal_aware"  # 'legal_aware' or 'sentence'
+    preserve_legal_headings: true
+    legal_heading_patterns:
+      - "FACTS"
+      - "BACKGROUND"
+      - "CONTENTIONS"
+      - "ARGUMENTS"
+      - "ISSUES"
+      - "EVIDENCE"
+      - "FINDINGS"
+      - "REASONING"
+      - "ORDER"
+      - "JUDGMENT"
+      - "OPERATIVE PORTION"
+      - "DECISION"
+      - "DECREE"
+
+# Translation Models
+models:
+  baseline:
+    name: "Helsinki-NLP/opus-mt-en-dra"
+    malayalam_name: "Helsinki-NLP/opus-mt-en-ml"
+    type: "opus_mt"
+    max_length: 512
+    num_beams: 4
+    batch_size: 8
+
+  indictrans2:
+    name: "ai4bharat/indictrans2-en-indic-dist-200M"
+    type: "indictrans2"
+    max_length: 512
+    num_beams: 5
+    batch_size: 8
+    src_lang_code: "eng_Latn"
+    tgt_lang_codes:
+      ta: "tam_Taml"
+      ml: "mal_Mlym"
+
+  legal_aware:
+    base_model: "indictrans2"
+    name: "ai4bharat/indictrans2-en-indic-dist-200M"
+    type: "legal_aware"
+    max_length: 512
+    num_beams: 5
+    batch_size: 8
+    entity_masking: true
+    terminology_validation: true
+    post_correction: true
+
+# Evaluation
+evaluation:
+  metrics:
+    - "bleu"
+    - "chrf"
+    - "rouge"
+    - "bertscore"
+    - "entity_preservation"
+    - "number_preservation"
+    - "legal_terminology"
+    - "critical_errors"
+  bertscore_model: "bert-base-multilingual-cased"
+  sacrebleu_tokenize: "flores200"
+
+# Human Evaluation Criteria & Scale
+human_evaluation:
+  scale: [1, 2, 3, 4, 5]
+  dimensions:
+    - "factual_accuracy"
+    - "legal_fidelity"
+    - "fluency"
+    - "completeness"
+    - "terminology_accuracy"

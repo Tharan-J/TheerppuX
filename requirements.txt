@@ -1,0 +1,35 @@
+# Core Machine Learning & NLP
+torch>=2.0.0
+transformers>=4.40.0
+sentencepiece>=0.1.99
+protobuf>=3.20.0
+
+# Document Ingestion & Extraction
+pdfplumber>=0.10.0
+python-docx>=1.1.0
+langdetect>=1.0.9
+nltk>=3.8.1
+
+# Configuration & Data Structures
+pyyaml>=6.0
+pydantic>=2.5.0
+
+# Evaluation & Metrics
+sacrebleu>=2.4.0
+rouge-score>=0.1.2
+bert-score>=0.3.13
+
+# Analysis & Visualization
+numpy>=1.24.0
+pandas>=2.0.0
+matplotlib>=3.7.0
+seaborn>=0.12.0
+tabulate>=0.9.0
+
+# Testing & Interactive
+pytest>=7.4.0
+jupyter>=1.0.0
+ipywidgets>=8.0.0
+
+# Optional Indic NLP (IndicTrans2)
+# IndicTransToolkit

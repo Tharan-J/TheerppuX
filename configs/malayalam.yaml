@@ -1,0 +1,121 @@
+# Malayalam Target Configuration (ml)
+
+target_language: "ml"
+language_name: "Malayalam"
+indictrans2_code: "mal_Mlym"
+flores_code: "mal_Mlym"
+
+# Model specific overrides for Malayalam
+models:
+  baseline:
+    name: "Helsinki-NLP/opus-mt-en-ml"
+    target_prefix: ""
+
+  indictrans2:
+    tgt_lang: "mal_Mlym"
+
+  legal_aware:
+    tgt_lang: "mal_Mlym"
+
+# Configurable Malayalam Legal Terminology Dictionary
+legal_terms:
+  petitioner:
+    canonical: "ഹർജിക്കാരൻ"
+    variants: ["ഹർജിക്കാരൻ", "ഹർജിക്കാരി", "ഹർജിക്കാർ", "ഹർജിക്കാരന്റെ", "ഹർജിക്കാരന്"]
+    type: "party_role"
+  respondent:
+    canonical: "എതിർകക്ഷി"
+    variants: ["എതിർകക്ഷി", "എതിർകക്ഷികൾ", "എതിർകക്ഷിയുടെ", "പ്രതിഭാഗം"]
+    type: "party_role"
+  appellant:
+    canonical: "അപ്പീൽവാദി"
+    variants: ["അപ്പീൽവാദി", "അപ്പീൽവാദികൾ", "അപ്പീൽവാദിയുടെ"]
+    type: "party_role"
+  defendant:
+    canonical: "പ്രതി"
+    variants: ["പ്രതി", "പ്രതികൾ", "പ്രതിയുടെ", "പ്രതിഭാഗം"]
+    type: "party_role"
+  plaintiff:
+    canonical: "വാദി"
+    variants: ["വാദി", "വാദികൾ", "വാദിയുടെ", "വാദിഭാഗം"]
+    type: "party_role"
+  accused:
+    canonical: "പ്രതി"
+    variants: ["പ്രതി", "കുറ്റാരോപിതൻ", "കുറ്റാരോപിതർ", "പ്രതികൾ"]
+    type: "party_role"
+  section:
+    canonical: "വകുപ്പ്"
+    variants: ["വകുപ്പ്", "വകുപ്പുകൾ", "വകുപ്പ് പ്രകാരം", "സെക്ഷൻ"]
+    type: "statute"
+  judgment:
+    canonical: "വിധിന്യായം"
+    variants: ["വിധിന്യായം", "വിധി", "വിധിന്യായത്തിൽ", "തീർപ്പ്"]
+    type: "legal_action"
+  order:
+    canonical: "ഉത്തരവ്"
+    variants: ["ഉത്തരവ്", "ഉത്തരവുകൾ", "ഉത്തരവ് പ്രകാരം", "ഉത്തരവിട്ടു"]
+    type: "legal_action"
+  appeal:
+    canonical: "അപ്പീൽ"
+    variants: ["അപ്പീൽ", "അപ്പീലുകൾ", "അപ്പീലിൽ"]
+    type: "legal_action"
+  petition:
+    canonical: "ഹർജി"
+    variants: ["ഹർജി", "ഹർജികൾ", "ഹർജിയിൽ"]
+    type: "legal_action"
+  evidence:
+    canonical: "തെളിവ്"
+    variants: ["തെളിവ്", "തെളിവുകൾ", "സാക്ഷിമൊഴി", "രേഖകൾ"]
+    type: "procedure"
+  affidavit:
+    canonical: "സത്യവാങ്മൂലം"
+    variants: ["സത്യവാങ്മൂലം", "സത്യവാങ്മൂലത്തിൽ", "സത്യപ്രസ്താവന"]
+    type: "document"
+  conviction:
+    canonical: "ശിക്ഷ"
+    variants: ["ശിക്ഷ", "ശിക്ഷിച്ചു", "കുറ്റക്കാരനായി കണ്ടെത്തി"]
+    type: "outcome"
+  acquittal:
+    canonical: "കുറ്റവിമുക്തനാക്കൽ"
+    variants: ["കുറ്റവിമുക്തനാക്കൽ", "വെറുതെ വിട്ടു", "കുറ്റവിമുക്തനാക്കി"]
+    type: "outcome"
+  dismissed:
+    canonical: "തള്ളി"
+    variants: ["തള്ളി", "തള്ളിപ്പോയി", "നിരസിച്ചു", "തള്ളിക്കളഞ്ഞു"]
+    type: "outcome"
+  allowed:
+    canonical: "അനുവദിച്ചു"
+    variants: ["അനുവദിച്ചു", "സ്വീകരിച്ചു", "അനുവദിക്കപ്പെട്ടു"]
+    type: "outcome"
+  bail:
+    canonical: "ജാമ്യം"
+    variants: ["ജാമ്യം", "മുൻകൂർ ജാമ്യം", "ജാമ്യത്തിൽ"]
+    type: "procedure"
+  court:
+    canonical: "കോടതി"
+    variants: ["കോടതി", "കോടതിയുടെ", "കോടതിയിൽ"]
+    type: "institution"
+  high_court:
+    canonical: "ഹൈക്കോടതി"
+    variants: ["ഹൈക്കോടതി", "ഹൈക്കോടതിയിൽ", "ഹൈക്കോടതിയുടെ"]
+    type: "institution"
+  supreme_court:
+    canonical: "സുപ്രീം കോടതി"
+    variants: ["സുപ്രീം കോടതി", "സുപ്രീംകോടതി", "സുപ്രീം കോടതിയിൽ"]
+    type: "institution"
+  district_court:
+    canonical: "ജില്ലാ കോടതി"
+    variants: ["ജില്ലാ കോടതി", "ജില്ലാകോടതി", "ജില്ലാ കോടതിയിൽ"]
+    type: "institution"
+  witness:
+    canonical: "സാക്ഷി"
+    variants: ["സാക്ഷി", "സാക്ഷികൾ", "സാക്ഷിമൊഴി"]
+    type: "party_role"
+  cross_examination:
+    canonical: "ക്രോസ് വിസ്താരം"
+    variants: ["ക്രോസ് വിസ്താരം", "ക്രോസ്-വിസ്താരം", "മറുവിസ്താരം"]
+    type: "procedure"
+  statute:
+    canonical: "നിയമം"
+    variants: ["നിയമം", "നിയമപ്രകാരം", "നിയമ വകുപ്പ്"]
+    type: "statute"

@@ -1,0 +1,56 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "theerppux-stage1"
+version = "1.0.0"
+description = "Multilingual Indian Legal Document Understanding & Translation Pipeline (Stage 1: Tamil & Malayalam)"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "torch>=2.0.0",
+    "transformers>=4.40.0",
+    "sentencepiece>=0.1.99",
+    "protobuf>=3.20.0",
+    "pdfplumber>=0.10.0",
+    "python-docx>=1.1.0",
+    "pyyaml>=6.0",
+    "sacrebleu>=2.4.0",
+    "rouge-score>=0.1.2",
+    "bert-score>=0.3.13",
+    "nltk>=3.8.1",
+    "langdetect>=1.0.9",
+    "pydantic>=2.5.0",
+    "numpy>=1.24.0",
+    "pandas>=2.0.0",
+    "matplotlib>=3.7.0",
+    "seaborn>=0.12.0",
+    "tabulate>=0.9.0"
+]
+
+[project.optional-dependencies]
+ocr = [
+    "paddlepaddle>=2.5.0",
+    "paddleocr>=2.7.0",
+    "pdf2image>=1.16.0",
+    "Pillow>=9.5.0"
+]
+indic = [
+    "IndicTransToolkit"
+]
+dev = [
+    "pytest>=7.4.0",
+    "jupyter>=1.0.0",
+    "ipywidgets>=8.0.0"
+]
+
+[project.scripts]
+theerppux = "src.cli:main"
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
